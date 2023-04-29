@@ -3,6 +3,10 @@ let second = document.querySelector('.second')
 let third = document.querySelector('.third')
 let start = document.querySelector('.start-btn')
 let reset = document.querySelector('.reset-btn')
+let selectElement = document.getElementById("mySelect");
+let deposit = document.querySelector('.deposit')
+let depositBtn = document.querySelector('.deposit-btn')
+let wallet = document.querySelector('.wallet')
 
 
 
@@ -17,6 +21,7 @@ let loop2 = 0
 let position3 = 0
 let loop3 = 0
 function moving() {
+
     const sayilar = [8, 10, 12];
 function karistir(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -78,19 +83,64 @@ function stop() {
 
 
 function finishLine() {
+    const selectedOption = selectElement.value;
     if(position == 1120 || position == 1116) {
-        alert('Birinci at qazandi')
+        if(selectedOption == 'First horse') {
+            alert('Sizin at qalibdi')
+           wallet.innerText = Number(wallet.innerText) + Number(deposit.value)
+           deposit.value = 0
+           depositBtn.style.backgroundColor = 'rgb(209, 82, 82)'
+        }
+        else {
+           alert('Birinci at qazandi')
+           wallet.innerText = Number(wallet.innerText) - Number(deposit.value)
+           deposit.value = 0
+           depositBtn.style.backgroundColor = 'rgb(209, 82, 82)'
+        }
         stop()
     }
     else if(position2 == 1120 || position2 == 1116) {
-        alert('Ikinci at qazandi')
+        if(selectedOption == 'Second horse') {
+            alert('Sizin at qalibdi')
+            wallet.innerText = Number(wallet.innerText) + Number(deposit.value)
+            deposit.value = 0
+            depositBtn.style.backgroundColor = 'rgb(209, 82, 82)'
+        }
+        else {
+           alert('Ikinci at qazandi')
+           wallet.innerText = Number(wallet.innerText) - Number(deposit.value)
+           deposit.value = 0
+           depositBtn.style.backgroundColor = 'rgb(209, 82, 82)'
+        }
         stop()
     }
     else if(position3 == 1120 || position3 == 1116) {
-        alert('Ucuncu at qazandi')
+        if(selectedOption == 'Third horse') {
+            alert('Sizin at qalibdi')
+            wallet.innerText = Number(wallet.innerText) + Number(deposit.value)
+            deposit.value = 0
+            depositBtn.style.backgroundColor = 'rgb(209, 82, 82)'
+        }
+        else {
+           alert('Ucuncu at qazandi')
+           wallet.innerText = Number(wallet.innerText) - Number(deposit.value)
+           deposit.value = 0
+           depositBtn.style.backgroundColor = 'rgb(209, 82, 82)'
+        }
         stop()      
     }
 }
+
+
+depositBtn.addEventListener('click', depoFunc)
+function depoFunc() {
+    a = Number(deposit.value)
+    const selectedOption = selectElement.value;
+    depositBtn.style.backgroundColor = 'yellow'
+    alert(`${selectedOption} ucun ${a} mebleginde deposit qoydunuz. Start duymesini basin `)
+}
+
+
 
 
 

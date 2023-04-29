@@ -48,6 +48,9 @@ img {
     color: black;
     border: none;
 }
+select {
+    margin-top: 30px;
+}
 
 .first {
     position: relative;
@@ -57,4 +60,22 @@ img {
 }
 .third {
     position: relative;
+}
+.section {
+    display: flex;
+}
+.deposit-general {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.deposit-btn {
+    padding: 5px;
+    background-color: rgb(209, 82, 82);
+}
+.wallet-general {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.wallet-text {
+    margin-top: 10px;
 }
