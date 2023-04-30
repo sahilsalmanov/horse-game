@@ -7,6 +7,7 @@ let selectElement = document.getElementById("mySelect");
 let deposit = document.querySelector('.deposit')
 let depositBtn = document.querySelector('.deposit-btn')
 let wallet = document.querySelector('.wallet')
+let spikerAudio = document.querySelector('#spiker-audio')
 
 
 
@@ -21,20 +22,20 @@ let loop2 = 0
 let position3 = 0
 let loop3 = 0
 function moving() {
-
+    spikerAudio.play()
     const sayilar = [8, 10, 12];
-function karistir(arr) {
+   function getRandom(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
 }
-const karisikSayilar = karistir(sayilar);
+const randomNumbers = getRandom(sayilar);
 
-let number1 = karisikSayilar[0]
-let number2 = karisikSayilar[1]
-let number3 = karisikSayilar[2]
+let number1 = randomNumbers[0]
+let number2 = randomNumbers[1]
+let number3 = randomNumbers[2]
 
 
     if(loop == 0) {
@@ -67,6 +68,8 @@ let number3 = karisikSayilar[2]
 
 reset.addEventListener('click', stop)
 function stop() {
+    spikerAudio.pause();
+    spikerAudio.currentTime = 0;
     loop = 0
     position = 0
     first.style.left = position + 'px'
